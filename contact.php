@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Educate Html 5 Template">
+
+    <title>Helise || Contacto</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/font-awesome.css">
+    <link rel="stylesheet" href="assets/vendor/slickslider/slick.css">
+    <link rel="stylesheet" href="assets/vendor/jquery-magnific-popup/jquery.magnific-popup.css">
+    <link rel="stylesheet" href="assets/vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="assets/vendor/odometer/odometer.min.css">
+    <link rel="stylesheet" href="assets/vendor/nice-select/nice-select.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+
+</head>
+
+<body class="custom-cursor locked">
+
+    <!-- cursor style  -->
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <!-- Preloader-->
+    <div id="preloader">
+        <div class="book">
+            <div class="inner">
+                <div class="left"></div>
+                <div class="middle"></div>
+                <div class="right"></div>
+            </div>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Wrapper Start -->
+    <div id="main-wrapper" class="main-wrapper">
+        <!-- Header Area start -->
+        <?php include('areas/encabezado.php'); ?>
+        <!-- Sticky Header -->
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+        <!-- Header Area End  -->
+
+        <!-- Page Title Banner Start -->
+        <section class="page_title_banner">
+            <div class="container">
+                <div class="content">
+                    <div class="title">
+                        <h1>Contact Us</h1>
+                        <img src="assets/media/shapes/tag-2.png" alt="" class="tag">
+                    </div>
+                    <div class="educate-tilt"
+                        data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 2, "speed": 700, "scale": 1 }'>
+                        <img src="assets/media/resources/page_title.png" alt="" class="main_img">
+                    </div>
+                    <img src="assets/media/shapes/circle-lines-2.png" alt="" class="circle_vector">
+                </div>
+            </div>
+        </section>
+        <!-- Page Title Banner End -->
+
+        <!-- Contact Area Start -->
+        <section class="py-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-24 mb-lg-0">
+                        <h6 class="color-primary mb-8">–––– Formulario de Contacto</h6>
+                        <h2 class="mb-16">¿Quieres conocer nuestra propuesta, <br> pedagogica ? <!-- <span
+                              class="fm-sec">Pincha</span>--></h2> 
+                        <p class="mb-32">Quieres pedir información. Quieres felicitarnos. <br>Conocer nuestros programas.</p>
+                        <form method="post" action="contact.php" class="contact-form form-validator">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-24">
+                                        <input type="text" class="form-control p_lg" id="name" name="name" required
+                                            placeholder="Primer Nombre">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-24">
+                                        <input type="text" class="form-control p_lg" id="last-name" name="last-name"
+                                            required placeholder="Apellido">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="mb-24">
+                                        <input type="email" class="form-control p_lg" id="email" name="email" required
+                                            placeholder="Correo Electronico">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="mb-24">
+                                        <input type="text" class="form-control p_lg" id="subject" name="subject"
+                                            required placeholder="Asunto">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-24">
+                                <textarea class="form-control p_lg" id="detail-message" name="message" rows="5" required
+                                    placeholder="Mensaje"></textarea>
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class="educate-btn"><span class="educate-btn__curve"></span>Enviar
+                                    Mensaje</button>
+                            </div>
+                            <!-- Alert Message -->
+                            <div id="message" class="alert-msg"></div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="educate-tilt"
+                            data-tilt-options='{ "glare": false, "maxGlare": 0, "maxTilt": 2, "speed": 700, "scale": 1 }'>
+                            <img src="assets/media/resources/contat.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="contact_links pt-60">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="contact_link_block mb-48 mb-lg-0">
+                                <div class="icon">
+                                    <i class="fal fa-map-marker-alt"></i>
+                                </div>
+                                <h6 class="dark-gray">Ibagué, Tolima, COLOMBIA.</h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="tel:123456789" class="contact_link_block mb-48 mb-lg-0">
+                                <div class="icon">
+                                    <i class="fal fa-phone-alt"></i>
+                                </div>
+                                <span class="h6">+1 234 567 890</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="mailto:example@info.com" class="contact_link_block">
+                                <div class="icon">
+                                    <i class="fal fa-envelope"></i>
+                                </div>
+                                <span class="h6">micorreo@ejemplo.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Area End -->
+
+        <!-- Footer Area Start -->
+        <?php include('areas/pie.php') ?>
+        <!-- Footer Area End -->
+
+    </div>
+
+    <!-- Mobile Menu Start -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="assets/media/logo-light.png" alt="educate"></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:example@company.com">example@company.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:+12345678">+123 (4567) -890</a>
+                </li>
+            </ul>
+            <div class="mobile-nav__social">
+                <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu End -->
+
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <div class="search-popup__content">
+            <form role="search" method="get" class="search-popup__form" action="index.html">
+                <input type="text" id="search" placeholder="Search Here...">
+                <button type="submit"><i class="fal fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    <!-- search-popup -->
+
+    <!-- back-to-top-start -->
+    <a href="#" class="scroll-top">
+        <svg class="scroll-top__circle" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </a>
+    <!-- back-to-top-end -->
+
+    <!-- Jquery Js -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery/jquery-3.6.3.min.js"></script>
+    <script src="assets/vendor/jquery-appear/jquery-appear.js"></script>
+    <script src="assets/vendor/jquery-validator/jquery-validator.js"></script>
+    <script src="assets/vendor/odometer/odometer.min.js"></script>
+    <script src="assets/vendor/countdown/jquery.countdown.min.js"></script>
+    <script src="assets/vendor/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/vendor/slickslider/slick.min.js"></script>
+    <script src="assets/vendor/tilt/tilt.jquery.js"></script>
+    <script src="assets/vendor/nice-select/jquery.nice-select.min.js"></script>
+    <script src="assets/vendor/wow/wow.js"></script>
+
+    <!-- Site Scripts -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
