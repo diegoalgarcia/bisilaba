@@ -222,7 +222,7 @@
                                       <tbody>
                                               <?php
                                                 include("conexion.php");
-                                                $cont_te=$base->query("SELECT * FROM rutainicial WHERE id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                                                $cont_te=$base->query("SELECT * FROM portada_uno WHERE id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($cont_te as $lista):  
                                                   
                                                 ?>
@@ -231,7 +231,7 @@
                                           <td><?php echo $lista->id?></td>
                                           <td><?php echo $lista->titulo?></td>
                                           <td>
-                                            <a class="btn btn-primary btn-sm" href="lista_comp_y_pdf.php?id=<?php echo $id_mod; ?>"><i class="bi bi-pencil"></i>
+                                            <a class="btn btn-primary btn-sm" href="lista_comp_y_pdf.php?id=<?php echo $lista->id; ?>&id_mod=<?php echo $id_mod; ?>"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td><!--
                                           <td>
