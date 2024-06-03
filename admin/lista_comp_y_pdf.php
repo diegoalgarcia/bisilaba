@@ -7,13 +7,39 @@
           // se debe redireccionar al nuevo archivo de login 
        }
        include("conexion.php");
-       $id_mod=$_GET['id'];
+       $id_mod=$_GET['id_mod'];
+       $id=$_GET['id'];   // id del siguiente subnivel
+
+       $subnivel=$base->query("SELECT * FROM portada_uno WHERE id=$id")->fetchAll(PDO::FETCH_OBJ);
+       foreach ($subnivel as $portada):
+           $titulo=$portada->titulo;
+       endforeach;
 
        $numero=$base->query("SELECT * FROM modulo WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
        foreach ($numero as $modulo):
            $texto=$modulo->nombre;
        endforeach;
 ?>
+<!--
+   Descripcion de la funcionalidad del archivo:
+
+   1. Debe enviar al formulario de ingreso de componentes
+   2. Debe mostrar los registros asociados
+   4. Debe enviar al formulario de asociacion de documentos pdf 
+   3. debe mostrar los documentos pdf asociados
+
+   secuencia para ver lista de modulos:
+   ------------------------------------
+   index.php -> lista_modulos.php
+
+   secuencia para ver lista de componentes (contenido) de la portada o primer nivel:
+   ------------------------------------
+   index.php -> lista_modulos.php -> lista_componentes.php 
+
+   secuencia para ver lista de subniveles o segundo nivel:
+   index.php -> lista_modulos.php -> lista_componentes.php -> lista_comp_y_pdf.php
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -201,7 +227,7 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Listado Componentes</h5>
+                    <h5 class="card-title">Listado Componentes <?php echo $titulo; ?></h5>
                   </div>
                   <div class="card-body">
                     <!-- inicio tabla -->
@@ -212,7 +238,7 @@
                                       <thead>
                                         <tr>
                                           <th scope="col">Nro</th>
-                                          <th scope="col">Texto del enlace</th>
+                                          <th scope="col">Título</th>
                                           <th scope="col">Ver</th>
                                           <!--<th scope="col">Actualiza</th>-->
                                           <th scope="col">Elimina</th>
@@ -222,7 +248,7 @@
                                       <tbody>
                                               <?php
                                                 include("conexion.php");
-                                                $cont_te=$base->query("SELECT * FROM componentes WHERE id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                                                $cont_te=$base->query("SELECT * FROM contenido_dos WHERE id=$id")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($cont_te as $lista):  
                                                   $lista->nivel;
                                                 ?>
@@ -259,10 +285,10 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Ingresar Textos Literarios</h5>
+                    <h5 class="card-title">Ingresar documento pdf</h5>
                   </div>
                   <div class="d-grid m-3">
-                                        <a href="form_cont_literario.php?id_mod=<?php echo $id_mod; ?>" class="btn btn-info">
+                                        <a href="form_ingresa_pdf.php?id_mod=<?php echo $id_mod; ?>" class="btn btn-info">
                                           <i class="bi bi-plus-circle"></i> Agregar</a>
                       </div>
                 </div>
@@ -271,7 +297,7 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Listado documentos Textos Literarios</h5>
+                    <h5 class="card-title">Listado documentos asociados</h5>
                   </div>
                   <div class="card-body">
                       <!-- Inicio tabla 2 -->
@@ -291,7 +317,7 @@
                                       <tbody>
                                               <?php
                                                 
-                                                $text_lit=$base->query("SELECT * FROM textos_literarios WHERE	id_mod_tl=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                                                $text_lit=$base->query("SELECT * FROM pdf_ruta WHERE	id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($text_lit as $lista2):
                                                 // code...
                                                 ?>
