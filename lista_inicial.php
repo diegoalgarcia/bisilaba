@@ -121,7 +121,7 @@ el visitante puede ver la lista de componentes del modulo
                                 <?php
                                 
                                    include("admin/conexion.php");
-                                   $inicioruta=$base->query("SELECT * FROM rutainicial WHERE id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                                   $inicioruta=$base->query("SELECT * FROM portada_uno WHERE id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
                                    foreach ($inicioruta as $lista):
                                 
                                 ?>
