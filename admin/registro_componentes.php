@@ -6,7 +6,7 @@ include("conexion.php");
     $id_mod=$_POST['id_mod'];                            
     $titulo=$_POST['titulo'];  
 	      
-    $sql="INSERT INTO rutainicial
+    $sql="INSERT INTO portada_uno
           (	id_mod, titulo)
     VALUES(:miMod, :miTitu)";
     
