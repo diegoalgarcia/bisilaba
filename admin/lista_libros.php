@@ -197,7 +197,7 @@
                     <div class="col-12">
                     <div class="card mb-4">
                       <div class="card-header">
-                        <h5 class="card-title">Listado de Módulos ingresados</h5>
+                        <h5 class="card-title">Listado de Libros ingresados</h5>
                       </div>
                       <div class="card-body">
                             <div class="table-outer">

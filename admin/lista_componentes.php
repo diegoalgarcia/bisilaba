@@ -197,7 +197,19 @@
                       </div>
                 </div>
               </div>
-
+              
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <h5 class="card-title">Ingresar documento pdf</h5>
+                  </div>
+                  <div class="d-grid m-3">
+                                        <a href="form_ingresa_pdf.php?id_mod=<?php echo $id_mod; ?>" class="btn btn-info">
+                                          <i class="bi bi-plus-circle"></i> Agregar</a>
+                      </div>
+                </div>
+              </div>
+              
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">

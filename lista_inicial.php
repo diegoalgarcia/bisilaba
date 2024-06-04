@@ -86,7 +86,7 @@ el visitante puede ver la lista de componentes del modulo
                         <?php
                             include("admin/conexion.php");
                             $id_mod=$_GET['id'];
-                            $cont_te=$base->query("SELECT * FROM modulo WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                            $cont_te=$base->query("SELECT * FROM libros WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
                             foreach ($cont_te as $lista):
                         ?>
                         <h1>Módulo <?php echo $lista->nombre; ?></h1>
