@@ -23,7 +23,7 @@
                       <li class="dropdown">
                           <?php
                             include("admin/conexion.php");
-                            $cont_te=$base->query("SELECT * FROM modulo")->fetchAll(PDO::FETCH_OBJ);
+                            $cont_te=$base->query("SELECT * FROM libros")->fetchAll(PDO::FETCH_OBJ);
                             foreach ($cont_te as $lista):
                           ?>
                         <li><a href="lista_inicial.php?id=<?php echo $lista->id; ?>"><?php echo "Módulo " . $lista->nombre; ?></a></li>
