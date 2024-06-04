@@ -182,7 +182,7 @@
                   </div>
                   <div class="card-body">
                     <!-- Row starts -->
-                  <form action="registro_modulo.php" method="post" class="form-validator">
+                  <form action="registro_libros.php" method="post" class="form-validator">
                     <div class="row gx-4">
                       <div class="col-lg-3 col-sm-4 col-12">
                         <div class="mb-3">
