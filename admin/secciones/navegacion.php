@@ -11,6 +11,9 @@
                     <a href="lista_libros.php">Módulos</a>
                   </li>
                   <li>
+                    <a href="lista_doc_pdf.php">Pdf`s</a>
+                  </li>
+                  <li>
                     <a href="#!">
                       Level One Menu 2
                       <i class="bi bi-chevron-right"></i>
