@@ -216,7 +216,7 @@
                                       <tbody>
                                               <?php
                                                 include("conexion.php");
-                                                $texto=$base->query("SELECT * FROM modulo")->fetchAll(PDO::FETCH_OBJ);
+                                                $texto=$base->query("SELECT * FROM libros")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($texto as $modulo):
                                                 // code...
                                                 ?>
