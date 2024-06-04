@@ -15,7 +15,7 @@
            $titulo=$portada->titulo;
        endforeach;
 
-       $numero=$base->query("SELECT * FROM modulo WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+       $numero=$base->query("SELECT * FROM libros WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
        foreach ($numero as $modulo):
            $texto=$modulo->nombre;
        endforeach;
