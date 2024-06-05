@@ -205,10 +205,10 @@
                                     <table class="table align-middle table-hover m-0 truncate">
                                       <thead>
                                         <tr>
-                                          <th scope="col">Módulo</th>
+                                          <!--<th scope="col">Módulo</th>-->
                                           <th scope="col">Título</th>
                                           <!--<th scope="col">Actualiza</th>-->
-                                          <th scope="col">Contenido</th>
+                                          <th scope="col">pdf</th>
                                           <th scope="col">Elimina</th>
                                         </tr>
                                       </thead>
@@ -216,21 +216,21 @@
                                       <tbody>
                                               <?php
                                                 include("conexion.php");
-                                                $texto=$base->query("SELECT * FROM pdf_ruta")->fetchAll(PDO::FETCH_OBJ);
-                                                foreach ($texto as $modulo):
+                                                $archivo=$base->query("SELECT * FROM pdf_ruta")->fetchAll(PDO::FETCH_OBJ);
+                                                foreach ($archivo as $pdf):
                                                 // code...
                                                 ?>
                                         <tr>
                                           
-                                          <td><?php echo $modulo->nombre?></td>
-                                          <td><?php echo $modulo->titulo?></td><!--
+                                          <!--<td><?php // echo $modulo->nombre?></td>-->
+                                          <td><?php echo $pdf->texto_enlace?></td><!--
                                           <td>
                                             <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td> -->
                                           <td>
                                             <a class="btn btn-primary btn-sm" 
-                                              href="lista_componentes.php?id=<?php echo $modulo->id?>"><i class="bi bi-pencil"></i>
+                                              href="<?php echo $pdf->ruta?>" target="_blank" ><i class="bi bi-pencil"></i>
                                             </a>
                                           </td>
                                           <td>

@@ -192,7 +192,7 @@ Procedencia: lista_doc_pdf.php
                     <!--
                     <form action="registro_cont_literario.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
                     -->
-                    <form action="registro_cont_literario.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>  
+                    <form action="ingreso_doc_pdf.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>  
                       <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Texto del Enlace</label>
                         <input type="text" name="texto" class="form-control" id="validationCustom01" required />
