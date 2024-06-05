@@ -230,7 +230,7 @@
                                           </td> -->
                                           <td>
                                             <a class="btn btn-primary btn-sm" 
-                                              href="<?php echo $pdf->ruta?>" target="_blank" ><i class="bi bi-pencil"></i>
+                                              href="<?php echo $pdf->ruta?>" target="_blank" rel="noopener noreferrer" ><i class="bi bi-pencil"></i>
                                             </a>
                                           </td>
                                           <td>
