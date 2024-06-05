@@ -188,7 +188,7 @@
                           <h5 class="card-title">Agregar archivos PDF</h5>
                         </div>
                         <div class="d-grid m-3">
-                                        <a href="form_ingreso_libro.php" class="btn btn-info">
+                                        <a href="form_ingresa_pdf.php" class="btn btn-info">
                                           <i class="bi bi-plus-circle"></i> Agregar</a>
                         </div>
                       </div>

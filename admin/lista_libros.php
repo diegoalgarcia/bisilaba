@@ -217,20 +217,20 @@
                                               <?php
                                                 include("conexion.php");
                                                 $texto=$base->query("SELECT * FROM libros")->fetchAll(PDO::FETCH_OBJ);
-                                                foreach ($texto as $modulo):
+                                                foreach ($texto as $libro):
                                                 // code...
                                                 ?>
                                         <tr>
                                           
-                                          <td><?php echo $modulo->nombre?></td>
-                                          <td><?php echo $modulo->titulo?></td><!--
+                                          <td><?php echo $libro->nombre?></td>
+                                          <td><?php echo $libro->titulo?></td><!--
                                           <td>
                                             <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td> -->
                                           <td>
                                             <a class="btn btn-primary btn-sm" 
-                                              href="lista_componentes.php?id=<?php echo $modulo->id?>"><i class="bi bi-pencil"></i>
+                                              href="lista_componentes.php?id=<?php echo $libro->id?>"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td>
                                           <td>

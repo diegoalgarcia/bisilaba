@@ -6,8 +6,8 @@
           // se debe redireccionar al nuevo archivo de login 
        }
        include("conexion.php");
-
-       $id_mod=$_GET['id_mod'];
+/* Procedencia:  */
+       $id_libro=$_GET['id_libro'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
