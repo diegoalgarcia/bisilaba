@@ -1,8 +1,12 @@
 <?php
    //select * from archivos where nombre like "%busca%"
+
+   /* Este archivo recibe los parametros e ingresa en la bd tabla 
+   la ruta de archivos archivo pdf
+   sube a la carpeta correspondiente del host los pdf seleccionados   
+   */
    include("conexion.php");
 
-   $id_mod=$_POST['id_mod'];
    $texto_enlace=$_POST['texto'];  
 
    $directorio = "uploads/";
@@ -14,16 +18,17 @@
 		
     move_uploaded_file($_FILES["archivo"]["tmp_name"], $archivo);
       
-    $sql="INSERT INTO textos_literarios (id_mod_tl, texto_enlace, ruta_enlace)	
-    VALUES (:miIdmodtl, :miText, :miRuta)";
+    $sql="INSERT INTO pdf_ruta (texto_enlace, ruta)	
+    VALUES (:miText, :miRuta)";
       
       $resultado=$base->prepare($sql);
 
-      $resultado->execute(array(":miIdmodtl"=>$id_mod, ":miText"=>$texto_enlace, ":miRuta"=>$archivo2));
+      $resultado->execute(array(":miText"=>$texto_enlace, ":miRuta"=>$archivo2));
       
-      header("location:lista_contenido.php?id=$id_mod");
+      header("location:lista_doc_pdf.php");
     }else {
-      header("location:lista_contenido.php?id=$id_mod");
+      echo 'No se pudo cargar el pdf :(';
+    //  header("location:lista_contenido.php");
     }
  
    /* 
