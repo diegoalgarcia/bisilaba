@@ -6,8 +6,10 @@
           // se debe redireccionar al nuevo archivo de login 
        }
        include("conexion.php");
-/* Procedencia:  */
-       $id_libro=$_GET['id_libro'];
+/* 
+Procedencia: lista_doc_pdf.php 
+*/
+       
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -191,7 +193,6 @@
                     <form action="registro_cont_literario.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
                     -->
                     <form action="registro_cont_literario.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>  
-                      <input type="hidden" name="id_mod" value="<?php echo $id_mod; ?>">
                       <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Texto del Enlace</label>
                         <input type="text" name="texto" class="form-control" id="validationCustom01" required />
