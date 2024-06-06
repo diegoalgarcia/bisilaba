@@ -8,20 +8,24 @@
                 </a>
                 <ul class="treeview-menu">
                   <li>
-                    <a href="lista_libros.php">Módulos</a>
-                  </li>
-                  <li>
-                    <a href="lista_doc_pdf.php">Pdf`s</a>
+                    <a href="">Portada</a>
                   </li>
                   <li>
                     <a href="#!">
-                      Level One Menu 2
+                      Insumos
                       <i class="bi bi-chevron-right"></i>
                     </a>
                     <ul class="treeview-menu">
                       <li>
-                        <a href="#!">Level Two Link 2.1</a>
+                        <a href="lista_libros.php">Libro</a>
                       </li>
+                      <li>
+                        <a href="lista_doc_pdf.php">Pdf</a>
+                      </li>
+                      <li>
+                        <a href="#!">Item</a>
+                      </li>
+                      <!--
                       <li>
                         <a href="#!">Level Two Menu 2.2
                           <i class="bi bi-chevron-right"></i>
@@ -35,10 +39,8 @@
                           </li>
                         </ul>
                       </li>
+                      -->
                     </ul>
-                  </li>
-                  <li>
-                    <a href="#!">Level One Link 3</a>
                   </li>
                 </ul>
               </li>
