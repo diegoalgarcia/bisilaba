@@ -197,7 +197,7 @@
                     <div class="col-12">
                     <div class="card mb-4">
                       <div class="card-header">
-                        <h5 class="card-title">Listado de Libros ingresados</h5>
+                        <h5 class="card-title">Listado de Libros ingresados </h5>
                       </div>
                       <div class="card-body">
                             <div class="table-outer">
@@ -230,7 +230,7 @@
                                           </td> -->
                                           <td>
                                             <a class="btn btn-primary btn-sm" 
-                                              href="lista_componentes.php?id=<?php echo $libro->id?>"><i class="bi bi-pencil"></i>
+                                              href="form_actualiza_libros.php?id=<?php echo $libro->id?>"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td>
                                           <td>
