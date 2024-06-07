@@ -8,7 +8,7 @@
                 </a>
                 <ul class="treeview-menu">
                   <li>
-                    <a href="lista_items_portada.php">Portada</a>
+                    <a href="lista_portada.php">Portada</a>
                   </li>
                   <li>
                     <a href="#!">
