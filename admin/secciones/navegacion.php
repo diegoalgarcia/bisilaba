@@ -23,7 +23,7 @@
                         <a href="lista_doc_pdf.php">Pdf</a>
                       </li>
                       <li>
-                        <a href="#!">Item</a>
+                        <a href="form_ingreso_items.php">Item</a>
                       </li>
                       <!--
                       <li>
