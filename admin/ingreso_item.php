@@ -16,6 +16,6 @@ $resultado->execute(array(":miTitu"=>$titulo));
     /* 
      $mensaje='error';
      header("location:form_registro.php?mensaje=$mensaje");*/
-     header("location:lista_items_portada.php");
+     header("location:lista_items.php");
      echo "Exito al ingresar el registro de Modulo...";
 ?>
