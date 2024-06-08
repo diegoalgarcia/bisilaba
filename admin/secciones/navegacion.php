@@ -8,7 +8,7 @@
                 </a>
                 <ul class="treeview-menu">
                   <li>
-                    <a href="lista_portada.php">Portada</a>
+                    <a href="lista_libros.php">Libros</a>
                   </li>
                   <li>
                     <a href="#!">
@@ -17,13 +17,10 @@
                     </a>
                     <ul class="treeview-menu">
                       <li>
-                        <a href="lista_libros.php">Libro</a>
-                      </li>
-                      <li>
                         <a href="lista_doc_pdf.php">Pdf</a>
                       </li>
                       <li>
-                        <a href="form_ingreso_items.php">Item</a>
+                        <a href="lista_items.php">Item</a>
                       </li>
                       <!--
                       <li>
