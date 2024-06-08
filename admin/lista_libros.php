@@ -230,7 +230,7 @@
                                           </td> -->
                                           <td>
                                             <a class="btn btn-primary btn-sm" 
-                                              href="form_actualiza_libros.php?id=<?php echo $libro->id?>"><i class="bi bi-pencil"></i>
+                                              href="lista_portada?id_libro=<?php echo $libro->id?>"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td>
                                           <td>
