@@ -7,15 +7,15 @@
           // se debe redireccionar al nuevo archivo de login 
        }
        include("conexion.php");
-       $id_mod=$_GET['id_mod'];
-       $id=$_GET['id'];   // id del siguiente subnivel
+       $id_libro=$_GET['id_libro'];
+      
 
-       $subnivel=$base->query("SELECT * FROM portada_uno WHERE id=$id")->fetchAll(PDO::FETCH_OBJ);
-       foreach ($subnivel as $portada):
-           $titulo=$portada->titulo;
+       $items=$base->query("SELECT * FROM portada_uno WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+       foreach ($items as $titulos):
+          // $titulos=$portada->titulo;
        endforeach;
 
-       $numero=$base->query("SELECT * FROM libros WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+       $numero=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
        foreach ($numero as $modulo):
            $texto=$modulo->nombre;
        endforeach;
@@ -212,13 +212,13 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Ingresar Componentes</h5>
+                    <h5 class="card-title">Ingresar Componentes (Ítems - Títulos)</h5>
                   </div>
                   <!-- Parametro recibido del archivo lista_modulos -->
                  
                   
                       <div class="d-grid m-3">
-                          <a href="form_cont_tematico.php?id_mod=<?php echo $id_mod; ?>" class="btn btn-info">
+                          <a href="form_cont_tematico.php?id_libro=<?php echo $id_libro; ?>" class="btn btn-info">
                           <i class="bi bi-plus-circle"></i> Agregar</a>
                       </div>
                 </div>
@@ -227,7 +227,7 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Listado Componentes <?php echo $titulo; ?></h5>
+                    <h5 class="card-title">Listado Componentes <?php // echo $titulo; ?></h5>
                   </div>
                   <div class="card-body">
                     <!-- inicio tabla -->
@@ -248,7 +248,7 @@
                                       <tbody>
                                               <?php
                                                 include("conexion.php");
-                                                $cont_te=$base->query("SELECT * FROM contenido_dos WHERE id=$id")->fetchAll(PDO::FETCH_OBJ);
+                                                $cont_te=$base->query("SELECT * FROM portada_uno WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($cont_te as $lista):  
                                                   $lista->nivel;
                                                 ?>
@@ -288,7 +288,7 @@
                     <h5 class="card-title">Ingresar documento pdf</h5>
                   </div>
                   <div class="d-grid m-3">
-                                        <a href="form_ingresa_pdf.php?id_mod=<?php echo $id_mod; ?>" class="btn btn-info">
+                                        <a href="form_ingresa_pdf.php?id_mod=<?php echo $id_libro; ?>" class="btn btn-info">
                                           <i class="bi bi-plus-circle"></i> Agregar</a>
                       </div>
                 </div>
@@ -317,7 +317,7 @@
                                       <tbody>
                                               <?php
                                                 
-                                                $text_lit=$base->query("SELECT * FROM pdf_ruta WHERE	id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                                                $text_lit=$base->query("SELECT * FROM pdf_ruta WHERE	id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($text_lit as $lista2):
                                                 // code...
                                                 ?>
