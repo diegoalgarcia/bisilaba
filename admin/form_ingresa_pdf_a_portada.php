@@ -10,6 +10,14 @@
 Procedencia: lista_doc_pdf.php 
 */
        
+$id_libro=$_GET['id_libro'];
+
+$libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+foreach ($libro as $modulo):
+    $texto=$modulo->nombre;
+endforeach;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +26,7 @@ Procedencia: lista_doc_pdf.php
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dashboard - Ingreso Textos Literarios</title>
+    <title>Dashboard - Asociacion de pdf</title>
 
     <!-- Meta -->
     <meta name="description" content="Marketplace for Bootstrap Admin Dashboards" />
@@ -120,7 +128,7 @@ Procedencia: lista_doc_pdf.php
 
             <!-- Breadcrumb starts -->
             <div class="d-flex align-items-center ms-3">
-              <h5 class="m-0">Formulario de registro de Textos Literarios</h5>
+              <h5 class="m-0">Formulario asociación de PDF a portada</h5>
             </div>
             <!-- Breadcrumb ends -->
 
@@ -184,40 +192,39 @@ Procedencia: lista_doc_pdf.php
                 <!-- App body starts -->
                 <div class="app-body">
 
-                       <!-- Row starts -->
+                <!-- Row starts -->
             <div class="row">
               <div class="col-sm-12">
                 <div class="card mb-4">
                   <div class="card-body">
-                    <!--
-                    <form action="registro_cont_literario.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
-                    -->
-                    <form action="ingreso_doc_pdf.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>  
-                      <div class="col-md-12">
-                        <label for="validationCustom01" class="form-label">Texto del Enlace</label>
-                        <input type="text" name="texto" class="form-control" id="validationCustom01" required />
+                    <form action="ingresa_item_a_portada.php" method="post" class="row g-3 needs-validation" novalidate>
+                      
+                      <div class="col-md-4">
+                        <label for="validationCustom02" class="form-label">Módulo</label>
+                        <input type="hidden" name="id_libro"  value="<?php echo $id_libro; ?>" />
+                        <input type="text" class="form-control" id="validationCustom02" value="<?php echo $texto; ?>" disabled="" />
+                        <div class="valid-feedback">¡Se ve bien!</div>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="validationCustom04" class="form-label">Documento PDF</label>
+                        <select name="id_pdf" class="form-select" id="validationCustom04" required>
+                          <option selected disabled value="">Seleccionar...</option>
+                          <?php
+                          $contenido=$base->query("SELECT * FROM pdf_ruta")->fetchAll(PDO::FETCH_OBJ);
+                          foreach ($contenido as $pdfs):
+                          ?>
+                          <option value="<?php echo $pdfs->id; ?>"><?php echo $pdfs->texto_enlace; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                         <div class="invalid-feedback">
-                        <!--<div class="valid-feedback">Looks good!</div>-->
-                          Campo requerido.
+                          Seleccione un ítem valido.
                         </div>
                       </div>
-                         
-                        <div class="col-md-6 col-sm-12 col-12">
-                            <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="was-validated">
-                                <input type="file" name="archivo" class="form-control" aria-label="file example" required="" />
-                                <div class="invalid-feedback">
-                                    No se ha seleccionado archivo
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                          <button class="btn btn-primary" type="submit">
-                            Registrar
-                          </button>
+                    
+                      <div class="col-12">
+                        <button class="btn btn-primary" type="submit">
+                          Asociar
+                        </button>
                       </div>
                     </form>
                   </div>
