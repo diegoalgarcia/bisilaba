@@ -7,20 +7,20 @@
           // se debe redireccionar al nuevo archivo de login 
        }
        include("conexion.php");
-       //$id_mod=$_GET['id_mod'];
+       $id_libro=$_GET['id_libro'];
        // $id=$_GET['id'];   id del siguiente subnivel
 
-       $subnivel=$base->query("SELECT * FROM portada_uno")->fetchAll(PDO::FETCH_OBJ);
-       foreach ($subnivel as $portada):
-           $titulo=$portada->titulo;
+       $contenido=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+       foreach ($contenido as $items):
+           $titulo=$items->id_item;
        endforeach;
-/*
-       $numero=$base->query("SELECT * FROM libros WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
-       foreach ($numero as $modulo):
+
+       $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+       foreach ($libro as $modulo):
            $texto=$modulo->nombre;
        endforeach;
 
-       */
+       
 ?>
 <!--
    Descripcion de la funcionalidad del archivo:
@@ -150,7 +150,7 @@
 
             <!-- Breadcrumb starts -->
             <div class="d-flex align-items-center ms-3">
-              <h5 class="m-0">Listado de Componentes Módulo <?php // echo $texto; ?></h5>
+              <h5 class="m-0">Listado de Componentes Módulo <?php echo $texto; ?></h5>
             </div>
             <!-- Breadcrumb ends -->
 
@@ -214,13 +214,13 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Ingresar Items (Títulos)</h5>
+                    <h5 class="card-title">Asociar Items (Títulos)</h5>
                   </div>
                   <!-- Parametro recibido del archivo lista_modulos -->
                  
                   
                       <div class="d-grid m-3">
-                          <a href="form_ingresa_items_a_portada.php" class="btn btn-info">
+                          <a href="form_ingresa_items_a_portada.php?id_libro=<?php echo $id_libro; ?>" class="btn btn-info">
                           <i class="bi bi-plus-circle"></i> Agregar</a>
                       </div>
                 </div>
@@ -229,10 +229,10 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Ingresar documento pdf</h5>
+                    <h5 class="card-title">Asociar documento pdf</h5>
                   </div>
                   <div class="d-grid m-3">
-                                        <a href="form_ingresa_pdf.php?id_mod=<?php // echo $id_mod; ?>" class="btn btn-info">
+                                        <a href="form_ingresa_pdf_a_portada.php?id_libro=<?php echo $id_libro; ?>" class="btn btn-info">
                                           <i class="bi bi-plus-circle"></i> Agregar</a>
                       </div>
                 </div>
@@ -241,7 +241,7 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Listado Componentes</h5>
+                    <h5 class="card-title">Listado Componentes de Portada</h5>
                   </div>
                   <div class="card-body">
                     <!-- inicio tabla -->
@@ -261,17 +261,16 @@
 
                                       <tbody>
                                               <?php
-                                              /*
+                                              
                                                 include("conexion.php");
-                                                $cont_te=$base->query("SELECT * FROM contenido_dos")->fetchAll(PDO::FETCH_OBJ);
+                                                $cont_te=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($cont_te as $lista):  
-                                                  $lista->nivel;
-                                                  */
+                                                  
                                                 ?>
                                         <tr>
                                           
-                                          <td><?php // echo $lista->id_comp?></td>
-                                          <td><?php // echo $lista->titulo?></td>
+                                          <td><?php  echo $lista->id?></td>
+                                          <td><?php  echo $lista->id_item?></td>
                                           <td>
                                             <a class="btn btn-primary btn-sm" href="<?php // echo  ?>"><i class="bi bi-pencil"></i>
                                             </a>
@@ -285,7 +284,7 @@
                                             </a>
                                           </td>
                                         </tr>
-                                        <?php // endforeach; ?>
+                                        <?php endforeach; ?>
                                       </tbody>
                                     </table>
                                   </div>
