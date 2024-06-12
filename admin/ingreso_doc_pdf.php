@@ -1,8 +1,9 @@
 <?php
    //select * from archivos where nombre like "%busca%"
 
-   /* Este archivo recibe los parametros e ingresa en la bd tabla 
-   la ruta de archivos archivo pdf
+   /* Este archivo recibe los parametros del archivo: 
+   procedencia: form_ingresa_pdf.php 
+   e ingresa en la bd tabla pdf_ruta de archivos archivo pdf
    sube a la carpeta correspondiente del host los pdf seleccionados   
    */
    include("conexion.php");
