@@ -12,7 +12,7 @@
 
        $subnivel=$base->query("SELECT * FROM portada_uno")->fetchAll(PDO::FETCH_OBJ);
        foreach ($subnivel as $portada):
-           $titulo=$portada->titulo;
+           $titulo=$portada->id_item;
        endforeach;
 /*
        $numero=$base->query("SELECT * FROM libros WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
