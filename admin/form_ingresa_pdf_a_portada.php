@@ -7,7 +7,11 @@
        }
        include("conexion.php");
 /* 
-Procedencia: lista_doc_pdf.php 
+Procedencia: index.php -> lista_libros.php -> lista_portada.php
+             -> form_ingresa_pdf_a_portada.php -> ingreso_asociar_pdf_con_portada.php
+             -> tabla portada_uno
+
+
 */
        
 $id_libro=$_GET['id_libro'];
@@ -16,7 +20,6 @@ $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FE
 foreach ($libro as $modulo):
     $texto=$modulo->nombre;
 endforeach;
-
 
 ?>
 <!DOCTYPE html>
@@ -197,7 +200,7 @@ endforeach;
               <div class="col-sm-12">
                 <div class="card mb-4">
                   <div class="card-body">
-                    <form action="ingresa_item_a_portada.php" method="post" class="row g-3 needs-validation" novalidate>
+                    <form action="ingreso_asociar_pdf_con_portada.php" method="post" class="row g-3 needs-validation" novalidate>
                       
                       <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Módulo</label>
@@ -210,7 +213,7 @@ endforeach;
                         <select name="id_pdf" class="form-select" id="validationCustom04" required>
                           <option selected disabled value="">Seleccionar...</option>
                           <?php
-                          $contenido=$base->query("SELECT * FROM pdf_ruta")->fetchAll(PDO::FETCH_OBJ);
+                          $contenido=$base->query("SELECT * FROM pdf_ruta WHERE estado IS NULL")->fetchAll(PDO::FETCH_OBJ);
                           foreach ($contenido as $pdfs):
                           ?>
                           <option value="<?php echo $pdfs->id; ?>"><?php echo $pdfs->texto_enlace; ?></option>

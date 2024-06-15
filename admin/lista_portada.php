@@ -253,6 +253,7 @@
                                         <tr>
                                           <th scope="col">Nro</th>
                                           <th scope="col">Título</th>
+                                          <th scope="col">PDF</th>
                                           <th scope="col">Ver</th>
                                           <!--<th scope="col">Actualiza</th>-->
                                           <th scope="col">Elimina</th>
@@ -263,14 +264,43 @@
                                               <?php
                                               
                                                 include("conexion.php");
-                                                $cont_te=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
-                                                foreach ($cont_te as $lista):  
-                                                  
-                                                ?>
+
+                                                $lista=$base->query("SELECT * FROM item WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+                                                foreach ($lista as $titulo):
+                                                endforeach;
+
+                                                
+                                                
+                                                $guias=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+                                                foreach ($guias as $seleccion):  
+                                                  $seleccion->id;
+                                                  $seleccion->id_item;
+                                                 /* 
+                                                  Consulta que trae 
+                                                  SELECT p.id_item, p.id_pdf
+                                                  FROM portada_uno p
+                                                  INNER JOIN item i ON p.id_item = i.id
+                                                  WHERE p.id_libro=1
+
+                                                  SELECT p.id_item, p.id_pdf
+                                                  FROM portada_uno p
+                                                  INNER JOIN item i ON p.id_item = i.id
+                                                  INNER JOIN pdf_ruta df ON p.id_pdf = df.id
+                                                  WHERE p.id_libro=1
+
+                                                  Muestra: desde campo pdf
+                                                  SELECT p.id, p.id_item, p.id_pdf, p.id_libro, df.texto_enlace
+                                                  FROM portada_uno p
+                                                  INNER JOIN pdf_ruta df ON p.id_pdf = df.id
+                                                  WHERE df.id_libro=1
+
+                                                */
+                                              ?>
                                         <tr>
                                           
-                                          <td><?php  echo $lista->id?></td>
-                                          <td><?php  echo $lista->id_item?></td>
+                                          <td><?php  echo $seleccion->id; ?></td>
+                                          <td><?php  echo $seleccion->id_item; ?></td>
+                                          <td><?php  echo $seleccion->id_pdf; ?></td>
                                           <td>
                                             <a class="btn btn-primary btn-sm" href="<?php // echo  ?>"><i class="bi bi-pencil"></i>
                                             </a>

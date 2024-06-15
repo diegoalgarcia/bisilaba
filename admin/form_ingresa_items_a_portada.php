@@ -213,7 +213,7 @@ envia a: ingresa_item_a_portada.php
                         <select name="id_item" class="form-select" id="validationCustom04" required>
                           <option selected disabled value="">Seleccionar...</option>
                           <?php
-                          $contenido=$base->query("SELECT * FROM item")->fetchAll(PDO::FETCH_OBJ);
+                          $contenido=$base->query("SELECT * FROM item WHERE estado IS NULL")->fetchAll(PDO::FETCH_OBJ);
                           foreach ($contenido as $items):
                           ?>
                           <option value="<?php echo $items->id; ?>"><?php echo $items->titulo; ?></option>

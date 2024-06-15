@@ -1,10 +1,13 @@
 <?php 
+/*
+Procediencia: form_ingreso_items.php
+
+Redireccion: lista_items.php
+*/
 
 include("conexion.php");
- 
-    // este archivo ingresa los usuarios administrativos
-   // $nombre=$_POST['nombre'];                            
-    $titulo=$_POST['titulo'];  
+                           
+    $titulo=$_POST['titulo']; 
 	 
     $sql="INSERT INTO item 
           (titulo)

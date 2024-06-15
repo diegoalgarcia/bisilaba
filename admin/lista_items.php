@@ -7,20 +7,12 @@
           // se debe redireccionar al nuevo archivo de login 
        }
        include("conexion.php");
-       //$id_mod=$_GET['id_mod'];
-       // $id=$_GET['id'];   id del siguiente subnivel
-
+       
        $subnivel=$base->query("SELECT * FROM portada_uno")->fetchAll(PDO::FETCH_OBJ);
        foreach ($subnivel as $portada):
            $titulo=$portada->id_item;
        endforeach;
-/*
-       $numero=$base->query("SELECT * FROM libros WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
-       foreach ($numero as $modulo):
-           $texto=$modulo->nombre;
-       endforeach;
 
-       */
 ?>
 <!--
    Descripcion de la funcionalidad del archivo:

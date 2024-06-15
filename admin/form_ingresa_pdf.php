@@ -120,7 +120,7 @@ Procedencia: lista_doc_pdf.php
 
             <!-- Breadcrumb starts -->
             <div class="d-flex align-items-center ms-3">
-              <h5 class="m-0">Formulario de registro de Textos Literarios</h5>
+              <h5 class="m-0">Formulario de registro de documentos PDF</h5>
             </div>
             <!-- Breadcrumb ends -->
 

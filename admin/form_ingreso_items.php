@@ -5,6 +5,11 @@
 
           // se debe redireccionar al nuevo archivo de login 
        }
+ /*
+   Procedencia: lista_items.php  (vista usuario muestra los registros)
+   Destino: ingreso_item.php (conecta la bd) retorno: lista_items.php
+   */
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
