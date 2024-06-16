@@ -130,7 +130,7 @@ envia a: ingresa_item_a_portada.php
 
             <!-- Breadcrumb starts -->
             <div class="d-flex align-items-center ms-3">
-              <h5 class="m-0">Formulario de seleccion de Item para portada</h5>
+              <h5 class="m-0">Formulario de ingreso de Item para portada</h5>
             </div>
             <!-- Breadcrumb ends -->
 
@@ -208,25 +208,15 @@ envia a: ingresa_item_a_portada.php
                         <input type="text" class="form-control" id="validationCustom02" value="<?php echo $texto; ?>" disabled="" />
                         <div class="valid-feedback">¡Se ve bien!</div>
                       </div>
-                      <div class="col-md-3">
-                        <label for="validationCustom04" class="form-label">Item o Titúlo</label>
-                        <select name="id_item" class="form-select" id="validationCustom04" required>
-                          <option selected disabled value="">Seleccionar...</option>
-                          <?php
-                          $contenido=$base->query("SELECT * FROM item WHERE estado IS NULL")->fetchAll(PDO::FETCH_OBJ);
-                          foreach ($contenido as $items):
-                          ?>
-                          <option value="<?php echo $items->id; ?>"><?php echo $items->titulo; ?></option>
-                          <?php endforeach; ?>
-                        </select>
-                        <div class="invalid-feedback">
-                          Seleccione un ítem valido.
-                        </div>
+                      <div class="col-md-4">
+                        <label for="validationCustom02" class="form-label">Item (Título)</label>
+                        <input type="text" name="item" class="form-control" id="validationCustom02" value="" required />
+                        <div class="valid-feedback">¡Se ve bien!</div>
                       </div>
-                    
+                      
                       <div class="col-12">
                         <button class="btn btn-primary" type="submit">
-                          Asociar
+                          Ingresar
                         </button>
                       </div>
                     </form>
