@@ -9,37 +9,21 @@
 
     include("conexion.php");
 // Consulta # 1: ingresa el registro a la tabla  
-    $id_item=$_POST["id_item"];
+    $item=$_POST["item"];
     $id_libro=$_POST["id_libro"];
-    $estado=1; 
+    $sin_pdf='form_ingresa_pdf_a_portada.php';
     
     $sql="INSERT INTO portada_uno 
-          (id_item, id_libro)
-    VALUES(:miItem, :miLibro)";
+          (item, id_libro, pdf_ruta)
+    VALUES(:miItem, :miLibro, :miSinPdf)";
     
    $resultado=$base->prepare($sql);
-   $resultado->execute(array(":miItem"=>$id_item, ":miLibro"=>$id_libro));
+   $resultado->execute(array(":miItem"=>$item, ":miLibro"=>$id_libro, ":miSinPdf"=>$sin_pdf));
 
-// Consulta # 2: actualiza el campo estado de la tabla item con el id  del item seleccionado  
 
-      $sql="UPDATE 
-      item
-      SET 
-      id_libro=:miLibro,
-      estado=:miEst
-      WHERE 
-      id=$id_item";
-
-      $resultado=$base->prepare($sql);
-      $resultado->execute(array(
-      ":miLibro"=>$id_libro,
-      ":miEst"=>$estado
-      ));
-
-    /* 
-      ***** Redireccionamiento *****
-     $mensaje='error';
-     header("location:form_registro.php?mensaje=$mensaje & dest=$destino");*/
+    //  ***** Redireccionamiento *****
+    // $mensaje='error';
+    // header("location:form_registro.php?mensaje=$mensaje & dest=$destino");*/
      header("location:lista_portada.php?id_libro=$id_libro");
      echo "Exito al ingresar el registro de Modulo...";
 
