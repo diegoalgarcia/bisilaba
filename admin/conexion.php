@@ -2,7 +2,7 @@
 
    try {
 
-    $base=new PDO('mysql:host=localhost; dbname=helise_bd_subniveles', 'root', '');
+    $base=new PDO('mysql:host=localhost; dbname=helise_estrategia2', 'root', '');
 /*
          
         $base=new PDO('mysql:host=localhost; dbname=heliseco_helise', 'heliseco_ingeniero', 'h+8Lu)CzJ[+5');
