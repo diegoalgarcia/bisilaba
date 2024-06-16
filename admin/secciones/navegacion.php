@@ -10,19 +10,21 @@
                   <li>
                     <a href="lista_libros.php">Libros</a>
                   </li>
+                  <!--
                   <li>
                     <a href="#!">
                       Insumos
                       <i class="bi bi-chevron-right"></i>
                     </a>
                     <ul class="treeview-menu">
+                      
                       <li>
                         <a href="lista_doc_pdf.php">Pdf</a>
                       </li>
                       <li>
                         <a href="lista_items.php">Item</a>
                       </li>
-                      <!--
+                      
                       <li>
                         <a href="#!">Level Two Menu 2.2
                           <i class="bi bi-chevron-right"></i>
@@ -36,9 +38,10 @@
                           </li>
                         </ul>
                       </li>
-                      -->
+                      
                     </ul>
                   </li>
+                  -->
                 </ul>
               </li>
             </ul>
