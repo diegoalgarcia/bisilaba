@@ -12,7 +12,7 @@
 
        $contenido=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
        foreach ($contenido as $items):
-           $titulo=$items->id_item;
+           $titulo=$items->item;
        endforeach;
 
        $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
@@ -25,21 +25,21 @@
 <!--
    Descripcion de la funcionalidad del archivo:
 
-   1. Debe enviar al formulario de ingreso de componentes
-   2. Debe mostrar los registros asociados
-   4. Debe enviar al formulario de asociacion de documentos pdf 
-   3. debe mostrar los documentos pdf asociados
+   1. Debe enviar al formulario de ingreso de items
+   2. Debe mostrar (listar) los registros (items) ingresados mediante formulario
+   4. Debe enviar al formulario de ingreso de documentos pdf 
+   3. debe mostrar los documentos pdf 
 
    secuencia para ver lista de modulos:
    ------------------------------------
-   index.php -> lista_modulos.php
+   index.php -> lista_libros.php
 
-   secuencia para ver lista de componentes (contenido) de la portada o primer nivel:
+   secuencia para ver lista de items (contenido) de la portada o primer nivel:
    ------------------------------------
-   index.php -> lista_modulos.php -> lista_componentes.php 
+   index.php -> lista_libros.php -> lista_portada.php 
 
    secuencia para ver lista de subniveles o segundo nivel:
-   index.php -> lista_modulos.php -> lista_componentes.php -> lista_comp_y_pdf.php
+   index.php -> lista_libros.php -> lista_portada.php
 
 -->
 <!DOCTYPE html>
@@ -214,7 +214,7 @@
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h5 class="card-title">Asociar Items (Títulos)</h5>
+                    <h5 class="card-title">Ingresar Items (Títulos)</h5>
                   </div>
                   <!-- Parametro recibido del archivo lista_modulos -->
                  
@@ -225,7 +225,7 @@
                       </div>
                 </div>
               </div>
-             
+             <!--
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
@@ -237,7 +237,7 @@
                       </div>
                 </div>
               </div>
-
+              -->
               <div class="col-12">
                 <div class="card mb-4">
                   <div class="card-header">
@@ -254,7 +254,7 @@
                                           <th scope="col">Nro</th>
                                           <th scope="col">Título</th>
                                           <th scope="col">PDF</th>
-                                          <th scope="col">Ver</th>
+                                          <th scope="col">Agregar ítem</th>
                                           <!--<th scope="col">Actualiza</th>-->
                                           <th scope="col">Elimina</th>
                                         </tr>
@@ -265,42 +265,17 @@
                                               
                                                 include("conexion.php");
 
-                                                $lista=$base->query("SELECT * FROM item WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
-                                                foreach ($lista as $titulo):
-                                                endforeach;
-
-                                                
-                                                
                                                 $guias=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($guias as $seleccion):  
-                                                  $seleccion->id;
-                                                  $seleccion->id_item;
-                                                 /* 
-                                                  Consulta que trae 
-                                                  SELECT p.id_item, p.id_pdf
-                                                  FROM portada_uno p
-                                                  INNER JOIN item i ON p.id_item = i.id
-                                                  WHERE p.id_libro=1
-
-                                                  SELECT p.id_item, p.id_pdf
-                                                  FROM portada_uno p
-                                                  INNER JOIN item i ON p.id_item = i.id
-                                                  INNER JOIN pdf_ruta df ON p.id_pdf = df.id
-                                                  WHERE p.id_libro=1
-
-                                                  Muestra: desde campo pdf
-                                                  SELECT p.id, p.id_item, p.id_pdf, p.id_libro, df.texto_enlace
-                                                  FROM portada_uno p
-                                                  INNER JOIN pdf_ruta df ON p.id_pdf = df.id
-                                                  WHERE df.id_libro=1
-
-                                                */
                                               ?>
                                         <tr>
                                           
                                           <td><?php  echo $seleccion->id; ?></td>
-                                          <td><?php  echo $seleccion->id_item; ?></td>
-                                          <td><?php  echo $seleccion->id_pdf; ?></td>
+                                          <td><?php  echo $seleccion->item; ?></td>
+                                          <td>
+                                          <a class="btn btn-primary btn-sm" href="<?php echo $seleccion->pdf_ruta; ?>?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $seleccion->id; ?>" target="_blank" rel="noreferrer noopener"><i class="bi bi-pencil"></i>
+                                          </a>
+                                          </td>
                                           <td>
                                             <a class="btn btn-primary btn-sm" href="<?php // echo  ?>"><i class="bi bi-pencil"></i>
                                             </a>
