@@ -254,8 +254,7 @@
                                           <th scope="col">Nro</th>
                                           <th scope="col">Título</th>
                                           <th scope="col">PDF</th>
-                                          <th scope="col">Agregar ítem</th>
-                                          <!--<th scope="col">Actualiza</th>-->
+                                          <th scope="col">Sub Item</th>
                                           <th scope="col">Elimina</th>
                                         </tr>
                                       </thead>
@@ -273,11 +272,12 @@
                                           <td><?php  echo $seleccion->id; ?></td>
                                           <td><?php  echo $seleccion->item; ?></td>
                                           <td>
-                                          <a class="btn btn-primary btn-sm" href="<?php echo $seleccion->pdf_ruta; ?>?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $seleccion->id; ?>" target="_blank" rel="noreferrer noopener"><i class="bi bi-pencil"></i>
-                                          </a>
+                                          <a class="btn btn-primary btn-sm" href="si_hay_pdf.php?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $seleccion->id; ?>" ><i class="bi bi-pencil"></i>
+                                      <!--    <a class="btn btn-primary btn-sm" href="<?php // echo $seleccion->pdf_ruta; ?>?id_libro=<?php // echo $id_libro; ?>&id_item=<?php // echo $seleccion->id; ?>" target="_blank" rel="noreferrer noopener"><i class="bi bi-pencil"></i>
+                                      --></a>
                                           </td>
                                           <td>
-                                            <a class="btn btn-primary btn-sm" href="<?php // echo  ?>"><i class="bi bi-pencil"></i>
+                                            <a class="btn btn-primary btn-sm" href="lista_sub_items_dos.php?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $seleccion->id; ?>"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td><!--
                                           <td>

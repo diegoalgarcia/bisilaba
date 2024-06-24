@@ -15,12 +15,19 @@ Procedencia: index.php -> lista_libros.php -> lista_portada.php
 */
        
 $id_libro=$_GET['id_libro'];
+$id_item=$_GET['id_item'];
 
 $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
 foreach ($libro as $modulo):
     $texto=$modulo->nombre;
 endforeach;
 
+/*
+$items=$base->query("SELECT * FROM portada_uno WHERE id=$id_item")->fetchAll(PDO::FETCH_OBJ);
+foreach ($items as $item):
+ 
+endforeach;
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -194,39 +201,32 @@ endforeach;
 
                 <!-- App body starts -->
                 <div class="app-body">
-
+                
+                
                 <!-- Row starts -->
             <div class="row">
               <div class="col-sm-12">
                 <div class="card mb-4">
                   <div class="card-body">
-                    <form action="ingreso_asociar_pdf_con_portada.php" method="post" class="row g-3 needs-validation" novalidate>
-                      
-                      <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Módulo</label>
-                        <input type="hidden" name="id_libro"  value="<?php echo $id_libro; ?>" />
-                        <input type="text" class="form-control" id="validationCustom02" value="<?php echo $texto; ?>" disabled="" />
-                        <div class="valid-feedback">¡Se ve bien!</div>
-                      </div>
-                      <div class="col-md-3">
-                        <label for="validationCustom04" class="form-label">Documento PDF</label>
-                        <select name="id_pdf" class="form-select" id="validationCustom04" required>
-                          <option selected disabled value="">Seleccionar...</option>
-                          <?php
-                          $contenido=$base->query("SELECT * FROM pdf_ruta WHERE estado IS NULL")->fetchAll(PDO::FETCH_OBJ);
-                          foreach ($contenido as $pdfs):
-                          ?>
-                          <option value="<?php echo $pdfs->id; ?>"><?php echo $pdfs->texto_enlace; ?></option>
-                          <?php endforeach; ?>
-                        </select>
-                        <div class="invalid-feedback">
-                          Seleccione un ítem valido.
+                    <form action="ingreso_pdf_a_portada.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+                         <input type="hidden" name="id_libro" value="<?php echo $id_libro; ?>">
+                         <input type="hidden" name="id_item" value="<?php echo $id_item; ?>">
+                         <div class="col-md-6 col-sm-12 col-12">
+                          <div class="card mb-4">
+                            <div class="card-body">
+                              <div class="was-validated">
+                                <input type="file" name="archivo" class="form-control" aria-label="file example" required="" />
+                                <div class="invalid-feedback">
+                                  Archivo no valido
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    
+
                       <div class="col-12">
                         <button class="btn btn-primary" type="submit">
-                          Asociar
+                          Ingresar
                         </button>
                       </div>
                     </form>
