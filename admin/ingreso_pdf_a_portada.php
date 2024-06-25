@@ -1,13 +1,22 @@
 <?php
    //select * from archivos where nombre like "%busca%"
 
-   /* Este archivo recibe los parametros e ingresa en la bd tabla 
+   /* 
+   procedencia: form_ingresa_pdf_a_portada.php
+   Este archivo recibe los parametros e ingresa en la bd tabla 
    la ruta de archivos archivo pdf
    sube a la carpeta correspondiente del host los pdf seleccionados   
    */
    include("conexion.php");
-
-   $texto_enlace=$_POST['texto'];  
+   
+   $id_libro=$_POST['id_libro'];
+   $id_item=$_POST['id_item'];
+   echo $id_libro;
+   echo '<br>';
+   echo $id_item;
+   echo '<br>';
+  var_dump($_FILES["archivo"]["name"]);
+  echo '<br>';
 
    $directorio = "uploads/";
    $archivo = $directorio . basename($_FILES["archivo"]["name"]);
@@ -17,20 +26,30 @@
    if($_FILES['archivo']['type']=='application/pdf'){
 		
     move_uploaded_file($_FILES["archivo"]["tmp_name"], $archivo);
-      
-    $sql="INSERT INTO pdf_ruta (texto_enlace, ruta)	
-    VALUES (:miText, :miRuta)";
-      
-      $resultado=$base->prepare($sql);
 
-      $resultado->execute(array(":miText"=>$texto_enlace, ":miRuta"=>$archivo2));
-      
-      header("location:lista_doc_pdf.php");
+    $sql="UPDATE 
+    portada_uno
+    SET 
+    pdf_ruta=:miRuta
+    WHERE 
+    id=$id_item";
+  
+    $resultado=$base->prepare($sql);
+    $resultado->execute(array(
+    ":miRuta"=>$archivo2
+  
+    ));
+
+      header("location:lista_portada.php?id_libro=$id_libro");
+
     }else {
       echo 'No se pudo cargar el pdf :(';
-    //  header("location:lista_contenido.php");
-    }
- 
+   
+   
+     }
+/**/
+
+  //  header("location:lista_contenido.php");
    /* 
     Pagina de los siguientes lineas
    https://datoweb.com/post/2952/como-validar-archivos-pdf-con-php

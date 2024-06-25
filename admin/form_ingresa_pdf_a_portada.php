@@ -138,7 +138,7 @@ endforeach;
 
             <!-- Breadcrumb starts -->
             <div class="d-flex align-items-center ms-3">
-              <h5 class="m-0">Formulario asociación de PDF a portada</h5>
+              <h5 class="m-0">Formulario ingreso PDF a ítem de portada</h5>
             </div>
             <!-- Breadcrumb ends -->
 
@@ -202,6 +202,32 @@ endforeach;
                 <!-- App body starts -->
                 <div class="app-body">
                 
+                <!-- Row starts -->
+            <div class="row gx-4">
+              <div class="col-12">
+                
+              
+              <div class="col-12">
+                <div class="card mb-4">
+                  <div class="card-body">
+
+                    <!-- Alert Warning -->
+                    <div class="alert bg-warning-subtle alert-dismissible d-flex fade show" role="alert">
+                      <i class="bi bi-exclamation-triangle-fill text-warning fs-3 me-3 lh-1"></i>
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-warning">Atención!</h6>
+                        <p>No se encuentra documento de archivo tipo PDF asociado al ítem.</p>
+                      </div>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>                
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Row ends -->
+
+
                 
                 <!-- Row starts -->
             <div class="row">
@@ -223,12 +249,12 @@ endforeach;
                             </div>
                           </div>
                         </div>
-
+                      
                       <div class="col-12">
                         <button class="btn btn-primary" type="submit">
                           Ingresar
                         </button>
-                      </div>
+                      </div> 
                     </form>
                   </div>
                 </div>
@@ -236,7 +262,39 @@ endforeach;
             </div>
             <!-- Row ends -->
 
-                    
+                    <!-- Row starts -->
+            <div class="row gx-4">
+              
+              <div class="col-sm-12">
+                <div class="card mb-4">
+                  <div class="card-body"><!--
+                    <div class="modal position-static d-block shade-light rounded-3" tabindex="-1" role="dialog"
+                      id="modalPayment2">-->
+                    <div class="modal position-static d-block shade-light rounded-3" tabindex="-1" role="dialog"
+                      id="modalPayment2">  
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-body p-5 text-center">
+                            
+                            
+                            
+                            <div class="d-flex gap-2">
+                              
+                              <button type="button" onclick="location.href='lista_portada.php?id_libro=<?php echo $id_libro; ?>'"  class="btn btn-lg btn-outline-dark w-100" data-bs-dismiss="modal">
+                                Cancel
+                              </button>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!-- Row ends -->
 
                 </div>
                 <!-- App body ends -->
