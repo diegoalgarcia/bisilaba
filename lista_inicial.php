@@ -2,7 +2,7 @@
 precede: index
 Funcion del archivo:
 lista los  registros de la tabla rutainicial
-el visitante puede ver la lista de componentes del modulo
+el visitante puede ver la lista de items de la portada del modulo seleccionado
 -->
 
 <!DOCTYPE html>
@@ -85,8 +85,8 @@ el visitante puede ver la lista de componentes del modulo
                     <div class="title">
                         <?php
                             include("admin/conexion.php");
-                            $id_mod=$_GET['id'];
-                            $cont_te=$base->query("SELECT * FROM libros WHERE id=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                            $id_libro=$_GET['id'];
+                            $cont_te=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
                             foreach ($cont_te as $lista):
                         ?>
                         <h1>Módulo <?php echo $lista->nombre; ?></h1>
@@ -121,11 +121,11 @@ el visitante puede ver la lista de componentes del modulo
                                 <?php
                                 
                                    include("admin/conexion.php");
-                                   $inicioruta=$base->query("SELECT * FROM portada_uno WHERE id_mod=$id_mod")->fetchAll(PDO::FETCH_OBJ);
+                                   $inicioruta=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
                                    foreach ($inicioruta as $lista):
                                 
                                 ?>
-                            <h5 class="mb-8"><?php  echo  $lista->titulo; ?></h5>
+                            <h5 class="mb-8"><?php  echo  $lista->item; ?></h5>
                             <?php  endforeach; ?>
                             <!-- <ul class="unstyled rules"> -->
                                 
