@@ -11,7 +11,7 @@
 // Consulta # 1: ingresa el registro a la tabla  
     $item=$_POST["item"];
     $id_libro=$_POST["id_libro"];
-    $sin_pdf='form_ingresa_pdf_a_portada.php';
+    $sin_pdf='no';
     
     $sql="INSERT INTO portada_uno 
           (item, id_libro, pdf_ruta)
