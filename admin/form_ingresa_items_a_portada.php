@@ -16,7 +16,7 @@ envia a: ingresa_item_a_portada.php
 
     
 
-       $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+       $libro=$base->query("SELECT * FROM libros WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
        foreach ($libro as $modulo):
            $texto=$modulo->nombre;
        endforeach;
