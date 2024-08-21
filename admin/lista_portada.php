@@ -15,7 +15,7 @@
            $titulo=$items->item;
        endforeach;
 
-       $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+       $libro=$base->query("SELECT * FROM libros WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
        foreach ($libro as $modulo):
            $texto=$modulo->nombre;
        endforeach;
@@ -269,15 +269,15 @@
                                               ?>
                                         <tr>
                                           
-                                          <td><?php  echo $seleccion->id; ?></td>
+                                          <td><?php  echo $seleccion->idPortada_uno; ?></td>
                                           <td><?php  echo $seleccion->item; ?></td>
                                           <td>
-                                          <a class="btn btn-primary btn-sm" href="si_hay_pdf.php?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $seleccion->id; ?>" ><i class="bi bi-pencil"></i>
+                                          <a class="btn btn-primary btn-sm" href="si_hay_pdf.php?id_libro=<?php echo $id_libro; ?>&idPortada_uno=<?php echo $seleccion->idPortada_uno; ?>" ><i class="bi bi-pencil"></i>
                                       <!--    <a class="btn btn-primary btn-sm" href="<?php // echo $seleccion->pdf_ruta; ?>?id_libro=<?php // echo $id_libro; ?>&id_item=<?php // echo $seleccion->id; ?>" target="_blank" rel="noreferrer noopener"><i class="bi bi-pencil"></i>
                                       --></a>
                                           </td>
                                           <td>
-                                            <a class="btn btn-primary btn-sm" href="lista_sub_items_dos.php?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $seleccion->id; ?>"><i class="bi bi-pencil"></i>
+                                            <a class="btn btn-primary btn-sm" href="lista_sub_items_dos.php?id_libro=<?php echo $id_libro; ?>&idPortada_uno=<?php echo $seleccion->idPortada_uno; ?>"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td><!--
                                           <td>

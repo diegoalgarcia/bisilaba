@@ -9,7 +9,7 @@ echo '<br>';
     include("conexion.php");
 
     $id_libro=$_GET['id_libro'];
-    $id_item=$_GET['id_item'];
+    $idPortada_uno=$_GET['idPortada_uno'];
 
     echo $id_libro;
     echo '<br>';
@@ -17,7 +17,7 @@ echo '<br>';
     echo '<br>';
 
     //$existe=$base->query("SELECT * FROM portada_uno WHERE WHERE id=$id_item AND id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
-    $existe=$base->query("SELECT * FROM portada_uno WHERE id=$id_item AND id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+    $existe=$base->query("SELECT * FROM portada_uno WHERE idPortada_uno=$idPortada_uno AND id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
     foreach ($existe as $si_no):  
         $comprobarpdf=$si_no->pdf_ruta;
     endforeach;  
@@ -26,7 +26,7 @@ echo '<br>';
     echo '<br>';
     if ($comprobarpdf == 'no') {
        echo 'no hay pdf, redireccionar a formulario con mensaje que no hay archivo asociado';
-       header("location:form_ingresa_pdf_a_portada.php?id_libro=$id_libro&id_item=$id_item");
+       header("location:form_ingresa_pdf_a_portada.php?id_libro=$id_libro&idPortada_uno=$idPortada_uno");
     }else {
       echo 'falta implementar debe ir a mostrar el pdf';
         header("location:$comprobarpdf");

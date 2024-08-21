@@ -85,8 +85,8 @@ el visitante puede ver la lista de items de la portada del modulo seleccionado
                     <div class="title">
                         <?php
                             include("admin/conexion.php");
-                            $id_libro=$_GET['id'];
-                            $cont_te=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+                            $id_libro=$_GET['id_libro'];
+                            $cont_te=$base->query("SELECT * FROM libros WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
                             foreach ($cont_te as $lista):
                         ?>
                         <h1>Módulo <?php echo $lista->nombre; ?></h1>

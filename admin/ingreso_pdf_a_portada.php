@@ -10,10 +10,10 @@
    include("conexion.php");
    
    $id_libro=$_POST['id_libro'];
-   $id_item=$_POST['id_item'];
+   $idPortada_uno=$_POST['idPortada_uno'];
    echo $id_libro;
    echo '<br>';
-   echo $id_item;
+   echo $$idPortada_uno;
    echo '<br>';
   var_dump($_FILES["archivo"]["name"]);
   echo '<br>';
@@ -32,7 +32,7 @@
     SET 
     pdf_ruta=:miRuta
     WHERE 
-    id=$id_item";
+    idPortada_uno=$idPortada_uno";
   
     $resultado=$base->prepare($sql);
     $resultado->execute(array(

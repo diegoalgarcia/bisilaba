@@ -8,16 +8,16 @@
        }
        include("conexion.php");
        $id_libro=$_GET['id_libro'];
-       $id_item=$_GET['id_item'];   
+       $idPortada_uno=$_GET['idPortada_uno'];
 
        
-
-       $contenido=$base->query("SELECT * FROM portada_uno WHERE id=$id_item")->fetchAll(PDO::FETCH_OBJ);
+                                                          //     '$idCont_dos'
+       $contenido=$base->query("SELECT * FROM portada_uno WHERE idPortada_uno=$idPortada_uno")->fetchAll(PDO::FETCH_OBJ);
        foreach ($contenido as $items):
            $item_portada=$items->item;
        endforeach;
 
-       $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+       $libro=$base->query("SELECT * FROM libros WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
        foreach ($libro as $modulo):
            $texto=$modulo->nombre;
        endforeach;
@@ -226,7 +226,7 @@
                  
                   
                       <div class="d-grid m-3">
-                          <a href="form_ingresa_items_a_contenido_dos.php?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $id_item; ?>" class="btn btn-info">
+                          <a href="form_ingresa_items_a_contenido_dos.php?id_libro=<?php echo $id_libro; ?>&idPortada_uno=<?php echo $idPortada_uno; ?>" class="btn btn-info">
                           <i class="bi bi-plus-circle"></i> Agregar</a>
                       </div>
                 </div>
@@ -270,20 +270,20 @@
                                               
                                                 include("conexion.php");
 
-                                                $subitem_s=$base->query("SELECT * FROM sub_contenido_dos WHERE id_item=$id_item")->fetchAll(PDO::FETCH_OBJ);
+                                                $subitem_s=$base->query("SELECT * FROM sub_contenido_dos WHERE idPortada_uno=$idPortada_uno")->fetchAll(PDO::FETCH_OBJ);
                                                 foreach ($subitem_s as $subitem):  
                                               ?>
                                         <tr>
                                           
-                                          <td><?php  echo $subitem->id; ?></td>
+                                          <td><?php  echo $subitem->idCont_dos; ?></td>
                                           <td><?php  echo $subitem->item; ?></td>
                                           <td>
-                                          <a class="btn btn-primary btn-sm" href="si_hay_pdf_dos.php?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $subitem->id; ?>" ><i class="bi bi-pencil"></i>
+                                          <a class="btn btn-primary btn-sm" href="si_hay_pdf_dos.php?id_libro=<?php echo $id_libro; ?>&idCont_dos=<?php echo $subitem->idCont_dos; ?>&idPortada_uno=<?php echo $idPortada_uno; ?>" ><i class="bi bi-pencil"></i>
                                       <!--    <a class="btn btn-primary btn-sm" href="<?php // echo $seleccion->pdf_ruta; ?>?id_libro=<?php // echo $id_libro; ?>&id_item=<?php // echo $seleccion->id; ?>" target="_blank" rel="noreferrer noopener"><i class="bi bi-pencil"></i>
                                       --></a>
                                           </td>
                                           <td>
-                                            <a class="btn btn-primary btn-sm" href="lista_sub_items_tres.php?id_libro=<?php echo $id_libro; ?>&id_item=<?php echo $subitem->id; ?>"><i class="bi bi-pencil"></i>
+                                            <a class="btn btn-primary btn-sm" href="lista_sub_items_tres.php?id_libro=<?php echo $id_libro; ?>&idCont_dos=<?php echo $subitem->idCont_dos; ?>"><i class="bi bi-pencil"></i>
                                             </a>
                                           </td><!--
                                           <td>

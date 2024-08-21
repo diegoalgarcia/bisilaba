@@ -7,7 +7,7 @@
     
 //  $base=new PDO('mysql:host=localhost; dbname=heliseco_helise', 'heliseco_ingeniero', 'h+8Lu)CzJ[+5');
 
-     $base=new PDO("mysql:host=localhost; dbname=helise_estrategia2", "root", "");
+     $base=new PDO("mysql:host=localhost; dbname=helise", "root", "");
 
   	$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   	$sql="SELECT * FROM administracion WHERE usuario= :miLogin AND contrasena	= :miPassword "; 
@@ -18,15 +18,10 @@
     $resultado->bindValue(":miPassword", $password);
 
     //$resultado->bindValue(":miStat", $modo); 
-
     $resultado->execute();
-
     $numero_registro=$resultado->rowCount();
 
-    
-
     // inicio primer if usuario
-    
     if ($numero_registro !=0) {
 
     //  $suTipo=$base->query("SELECT * FROM user WHERE login = '$login'")->fetchAll(PDO::FETCH_OBJ);

@@ -101,20 +101,24 @@
             <div class="container">
                 <div class="row" id="accordionExample">
                     <div class="col-lg-8">
+                        <?php
+                            $inicioruta=$base->query("SELECT * FROM portada_uno WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+                            foreach ($inicioruta as $lista):
+                            $consecutivo=$lista->id;
+                        ?>
                         <div class="faq-block">
                             <a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">How do I create an
-                                account on this platform?
+                                data-bs-target="#faq<?php echo $consecutivo ?>" aria-expanded="true" aria-controls="faq<?php echo $consecutivo ?>">
+                                <?php  echo  $lista->item; ?>
                             </a>
-                            <div id="faq1" class="accordion-collapse collapse " aria-labelledby="faq1"
+                            <div id="faq<?php echo $consecutivo ?>" class="accordion-collapse collapse " aria-labelledby="faq<?php echo $consecutivo ?>"
                                 data-bs-parent="#accordionExample">
-                                <p>Lorem ipsum dolor sit amet consectetur. Enim non cras odio fusce feugiat posuere sed.
-                                    Scelerisque mauris dapibus purus convallis. Libero egestas tempus arcu elementum
-                                    facilisis. Non fringilla aliquam leo adipiscing mi neque urna. Pellentesque
-                                    ullamcorper pellentesque nam eros elit placerat. Elementum dapibus donec eleifend
-                                    quis a donec elit vivamus. Egestas aliquam quis cursus amet.</p>
+                                <a href=""><p>Ver PDF.</p></a>
+                                <p>Contenido</p>
                             </div>
                         </div>
+                        <?php endforeach; ?>
+                        <!--
                         <div class="faq-block">
                             <a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
                                 data-bs-target="#faq2" aria-expanded="true" aria-controls="faq2">What courses and
@@ -129,6 +133,7 @@
                                     quis a donec elit vivamus. Egestas aliquam quis cursus amet.</p>
                             </div>
                         </div>
+                         
                         <div class="faq-block">
                             <a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
                                 data-bs-target="#faq3" aria-expanded="true" aria-controls="faq3">Can I access course
@@ -143,6 +148,7 @@
                                     quis a donec elit vivamus. Egestas aliquam quis cursus amet.</p>
                             </div>
                         </div>
+                       
                         <div class="faq-block">
                             <a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
                                 data-bs-target="#faq4" aria-expanded="true" aria-controls="faq4">Is there a certificate
@@ -157,6 +163,7 @@
                                     quis a donec elit vivamus. Egestas aliquam quis cursus amet.</p>
                             </div>
                         </div>
+                        
                         <div class="faq-block">
                             <a href="#" class="accordion-button collapsed" data-bs-toggle="collapse"
                                 data-bs-target="#faq5" aria-expanded="true" aria-controls="faq5">Can I interact with
@@ -171,6 +178,7 @@
                                     quis a donec elit vivamus. Egestas aliquam quis cursus amet.</p>
                             </div>
                         </div>
+                        -->
                     </div>
                     <div class="col-lg-4">
                         <h6 class="color-primary mb-8">–––– FAQ Form</h6>

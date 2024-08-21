@@ -11,14 +11,13 @@
 // Consulta # 1: ingresa el registro a la tabla  
     $item=$_POST["item"];
     $id_libro=$_POST["id_libro"];
-    $sin_pdf='no';
     
     $sql="INSERT INTO portada_uno 
-          (item, id_libro, pdf_ruta)
-    VALUES(:miItem, :miLibro, :miSinPdf)";
+          (item, id_libro)
+    VALUES(:miItem, :miLibro)";
     
    $resultado=$base->prepare($sql);
-   $resultado->execute(array(":miItem"=>$item, ":miLibro"=>$id_libro, ":miSinPdf"=>$sin_pdf));
+   $resultado->execute(array(":miItem"=>$item, ":miLibro"=>$id_libro));
 
 
     //  ***** Redireccionamiento *****

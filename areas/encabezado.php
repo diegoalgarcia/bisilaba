@@ -26,7 +26,7 @@
                             $cont_te=$base->query("SELECT * FROM libros")->fetchAll(PDO::FETCH_OBJ);
                             foreach ($cont_te as $lista):
                           ?>
-                        <li><a href="lista_inicial.php?id=<?php echo $lista->id; ?>"><?php echo "Módulo " . $lista->nombre; ?></a></li>
+                        <li><a href="lista_inicial.php?id_libro=<?php echo $lista->id_libro; ?>"><?php echo "Módulo " . $lista->nombre; ?></a></li>
                           <?php endforeach; ?>
                       </li>
                       
