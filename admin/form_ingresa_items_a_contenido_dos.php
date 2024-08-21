@@ -12,14 +12,14 @@ envia a: ingresa_item_a_contenido_dos.php
 */
        
       $id_libro=$_GET['id_libro'];
-      $id_item=$_GET['id_item'];   
+      $idPortada_uno=$_GET['idPortada_uno'];   
 
-      $contenido=$base->query("SELECT * FROM portada_uno WHERE id=$id_item")->fetchAll(PDO::FETCH_OBJ);
+      $contenido=$base->query("SELECT * FROM portada_uno WHERE idPortada_uno =$idPortada_uno")->fetchAll(PDO::FETCH_OBJ);
        foreach ($contenido as $items):
            $item_portada=$items->item;
        endforeach;
 
-       $libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+       $libro=$base->query("SELECT * FROM libros WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
        foreach ($libro as $modulo):
            $texto=$modulo->nombre;
        endforeach;
@@ -210,7 +210,7 @@ envia a: ingresa_item_a_contenido_dos.php
                       <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Módulo</label>
                         <input type="hidden" name="id_libro"  value="<?php echo $id_libro; ?>" />
-                        <input type="hidden" name="id_item"  value="<?php echo $id_item; ?>" />
+                        <input type="hidden" name="idPortada_uno"  value="<?php echo $idPortada_uno; ?>" />
                         <input type="text" class="form-control" id="validationCustom02" value="<?php echo $texto; ?>" disabled="" />
                         <div class="valid-feedback">¡Se ve bien!</div>
                       </div>
