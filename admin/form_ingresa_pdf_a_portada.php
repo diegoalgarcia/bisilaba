@@ -15,13 +15,17 @@ Procedencia: index.php -> lista_libros.php -> lista_portada.php
 */
        
 $id_libro=$_GET['id_libro'];
-$id_item=$_GET['id_item'];
+$idPortada_uno=$_GET['idPortada_uno'];
 
-$libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+$libro=$base->query("SELECT * FROM libros WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
 foreach ($libro as $modulo):
     $texto=$modulo->nombre;
 endforeach;
 
+$item=$base->query("SELECT * FROM portada_uno WHERE idPortada_uno=$idPortada_uno")->fetchAll(PDO::FETCH_OBJ);
+foreach ($item as $portadaUno):
+    $item_portada_uno=$portadaUno->item;
+endforeach;
 /*
 $items=$base->query("SELECT * FROM portada_uno WHERE id=$id_item")->fetchAll(PDO::FETCH_OBJ);
 foreach ($items as $item):
@@ -216,7 +220,7 @@ endforeach;
                       <i class="bi bi-exclamation-triangle-fill text-warning fs-3 me-3 lh-1"></i>
                       <div class="d-flex flex-column">
                         <h6 class="mb-1 text-warning">Atención!</h6>
-                        <p>No se encuentra documento de archivo tipo PDF asociado al ítem.</p>
+                        <p>No se encuentra documento de archivo tipo PDF asociado al ítem: <?php echo  $item_portada_uno ?></p>
                       </div>
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>                
@@ -236,7 +240,7 @@ endforeach;
                   <div class="card-body">
                     <form action="ingreso_pdf_a_portada.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
                          <input type="hidden" name="id_libro" value="<?php echo $id_libro; ?>">
-                         <input type="hidden" name="id_item" value="<?php echo $id_item; ?>">
+                         <input type="hidden" name="idPortada_uno" value="<?php echo $idPortada_uno; ?>">
                          <div class="col-md-6 col-sm-12 col-12">
                           <div class="card mb-4">
                             <div class="card-body">
