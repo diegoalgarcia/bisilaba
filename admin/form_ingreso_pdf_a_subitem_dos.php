@@ -16,13 +16,18 @@ destino: ingresa_pdf_a_sub_contenido_dos.php
 */
        
 $id_libro=$_GET['id_libro'];
-$id_item=$_GET['id_item'];
+$idCont_dos=$_GET['idCont_dos']; 
+$idPortada_uno=$_GET['idPortada_uno'];
 
-$libro=$base->query("SELECT * FROM libros WHERE id=$id_libro")->fetchAll(PDO::FETCH_OBJ);
+$libro=$base->query("SELECT * FROM libros WHERE id_libro=$id_libro")->fetchAll(PDO::FETCH_OBJ);
 foreach ($libro as $modulo):
     $texto=$modulo->nombre;
 endforeach;
 
+$item=$base->query("SELECT * FROM sub_contenido_dos WHERE idCont_dos=$idCont_dos")->fetchAll(PDO::FETCH_OBJ);
+foreach ($item as $contenidoDos):
+    $item_contenido_dos=$contenidoDos->item;
+endforeach;
 /*
 $items=$base->query("SELECT * FROM portada_uno WHERE id=$id_item")->fetchAll(PDO::FETCH_OBJ);
 foreach ($items as $item):
@@ -135,11 +140,11 @@ endforeach;
                 <img src="assets/images/logo-sm.png" class="logo" alt="Seven Bootstrap Template" />
               </a>
             </div>
-            <!-- App brand sm ends -->
+            <!-- App brand sm ends --> 
 
             <!-- Breadcrumb starts -->
             <div class="d-flex align-items-center ms-3">
-              <h5 class="m-0">Formulario ingreso PDF a ítem de portada</h5>
+              <h5 class="m-0">Formulario ingreso PDF a ítem: <?php echo  $item_contenido_dos; ?> </h5>
             </div>
             <!-- Breadcrumb ends -->
 
@@ -217,7 +222,7 @@ endforeach;
                       <i class="bi bi-exclamation-triangle-fill text-warning fs-3 me-3 lh-1"></i>
                       <div class="d-flex flex-column">
                         <h6 class="mb-1 text-warning">Atención!</h6>
-                        <p>No se encuentra documento de archivo tipo PDF asociado al ítem.</p>
+                        <p>No se encuentra documento de archivo tipo PDF asociado al ítem: <?php echo  $item_contenido_dos; ?> </p>
                       </div>
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>                
@@ -237,7 +242,8 @@ endforeach;
                   <div class="card-body">
                     <form action="ingresa_pdf_a_sub_contenido_dos.php" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
                          <input type="hidden" name="id_libro" value="<?php echo $id_libro; ?>">
-                         <input type="hidden" name="id_item" value="<?php echo $id_item; ?>">
+                         <input type="hidden" name="idCont_dos" value="<?php echo $idCont_dos; ?>"> 
+                         <input type="hidden" name="idPortada_uno" value="<?php echo $idPortada_uno; ?>">
                          <div class="col-md-6 col-sm-12 col-12">
                           <div class="card mb-4">
                             <div class="card-body">
@@ -281,7 +287,7 @@ endforeach;
                             
                             <div class="d-flex gap-2">
                               
-                              <button type="button" onclick="location.href='lista_portada.php?id_libro=<?php echo $id_libro; ?>'"  class="btn btn-lg btn-outline-dark w-100" data-bs-dismiss="modal">
+                              <button type="button" onclick="location.href='lista_sub_items_dos.php?id_libro=<?php echo $id_libro; ?>&idPortada_uno=<?php echo $idPortada_uno; ?>'"  class="btn btn-lg btn-outline-dark w-100" data-bs-dismiss="modal">
                                 Cancel
                               </button>
                               
